@@ -19,6 +19,12 @@ The minimum element will always be the starting point of the rotation.
 So move to first half. If the midElement < highElement condition not satisfied, then move to right side as there will be rotationStart found there.
 
 Continue this process until you find the rotationStart (minimumElement) and return the lowElement
+
+Why high = mid instead of high = mid - 1;
+Let's take one example
+4 5 6 1 2 3 ==> In this scenario, mid is 1 and high is 3. The condition is satisfied but still 1 is the minimum number.
+So we also take it to consideration as it is not confirmed that mid element is not a minimum element.
+That's why we add mid element to the left part by assigning high = mid.
 */
 
 class Solution {

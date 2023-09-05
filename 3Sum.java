@@ -6,7 +6,10 @@ Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
 Notice that the solution set must not contain duplicate triplets.
 
 Explanation:
-Refer : problem solving - 2.md on placement-resource
+The solution is based on the idea of Two sum where we find two sum for every element in the array.
+We find two sum for rSum where rSum is the remaining sum that is sum - currElement.
+We traverse through all the element and make it as currElement and get twoSum for all the element, if two sum matches, then we will
+return the threeSum as currElement and two elements from twoSum.
 
 */
 

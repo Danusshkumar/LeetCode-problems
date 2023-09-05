@@ -16,6 +16,12 @@ then it'll be wrong as there may be an array really with the value of Integer.MI
 
 class Solution {
     public int thirdMax(int[] arr) {
+
+        // There will be an Integer.MIN_VALUE in the 
+        // test case and also there will be a test case
+        // with arr[0] (first element) as thirdMax
+        // So, to avoid such corner cases, we go for
+        // Long.MIN_VALUE
         
         long firstMax = Long.MIN_VALUE;
         long secondMax = Long.MIN_VALUE;

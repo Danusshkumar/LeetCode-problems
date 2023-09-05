@@ -39,9 +39,9 @@ class Solution {
         while(low < high){
             int mid = low + (high - low)/2;
             if(arr[mid] < arr[high])
-                high = mid;
+                high = mid; // why not high = mid - 1 ? becuase arr[mid] may be the minimum element right ? (move to left)
             else
-                low = mid + 1;
+                low = mid + 1; // move to right
         }
         return arr[low];
     }

@@ -48,6 +48,7 @@ class Solution {
 
         int count = 0;
         HashMap<Integer,Integer> prefixSum = new HashMap<Integer,Integer>();
+        // prefixSum ==> prefixSum,frequencyOfPrefixSum
         
         int sum = 0;
         prefixSum.put(0,1);
@@ -55,6 +56,10 @@ class Solution {
             sum += i;
 
             if(prefixSum.containsKey(sum-k)){
+                // note that while count incremented to 1
+                // there will be one k and one sum - k there
+                // that'll construct subarray. That's why 
+                // 1 added to count and so on. 
                 count += prefixSum.get(sum-k);
             }
 

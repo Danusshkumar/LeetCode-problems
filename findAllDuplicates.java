@@ -39,7 +39,7 @@ class Solution {
         List<Integer> res = new ArrayList<Integer>();
         for(int i = 0;i<arr.length;i++){
             int num = Math.abs(arr[i]);
-            int index = num - 1;
+            int index = num - 1; //because number starts with 1 [1,n] but index starts with 0 [0,n-1]
             if(arr[index] < 0)
                 res.add(num);
             else 

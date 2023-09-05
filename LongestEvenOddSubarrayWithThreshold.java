@@ -30,22 +30,26 @@ first element for another subarray. If we didn't put j--, that arr[j] won't be t
 class Solution {
     public int longestAlternatingSubarray(int[] arr, int th) {
         int max = 0, i = 0,j = 0, flag = 0;
+        // i ==> starting, j ==> ending, flag ==> whether
+        // the subarray is opened or not
         int n = arr.length;
         while(j < n){
-            if(flag == 0){
+            if(flag == 0){ //subarray closed, we can start a subarray
                 if(arr[j]%2 == 0 && arr[j] <= th){
-                    i = j;
-                    max = ( 1 > max ) ? 1 : max;
+                    i = j; // setting starting and ending point
+                    max = ( 1 > max ) ? 1 : max; // for starting of the array
                     flag = 1;
                 }
             }
             else if(flag == 1){
                 if(arr[j - 1]%2 != arr[j]%2 && arr[j] <= th){
+                    //if the prevOne and currOne is even-odd or odd-even && if the currOne is less than threshold, then update max
                     max = ( (j-i+1) > max ) ? (j-i+1) : max;
                 }
                 else {
                     flag = 0;
-                    j--;
+                    j--; // j-- because ending element
+                    // may be the starting element of another subarray
                 }
             }
             j++;

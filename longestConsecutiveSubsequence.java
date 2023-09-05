@@ -33,6 +33,8 @@ class Solution {
         int count  = 0;
         for(Integer i : set){
             if(!set.contains(i - 1)){
+                // checking whether the current element
+                // would be the starting of consecutive elements
                 int currCount = 1;
                 int next = i + 1;
                 

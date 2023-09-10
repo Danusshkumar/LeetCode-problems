@@ -32,3 +32,53 @@ class Solution {
 
     }
 }
+
+
+//optimised solution using merge sort
+
+class Solution {
+    public int[] intersection(int[] a, int[] b) {
+
+        Arrays.sort(a);
+        Arrays.sort(b);
+
+        int m = a.length;
+        int n = b.length;
+        ArrayList<Integer> res = new ArrayList<>();
+        int i =0, j = 0;
+
+        while(i < m && j < n){
+
+            if(i > 0 && a[i] == a[i - 1]){
+                i++;
+                continue;
+            }
+
+            if(j > 0 && b[j] == b[j - 1]){
+                j++;
+                continue;
+            }
+
+            if(a[i] < b[j]){
+                i++;
+            }
+            else if(a[i] > b[j]){
+                j++;
+            }
+            else {
+                res.add(a[i]);
+                i++;
+                j++;
+            }
+        }
+
+        int[] returnRes = new int[res.size()];
+        int k = 0;
+        for(Integer num : res){
+            returnRes[k] = num.intValue();
+            k++;
+        }
+
+        return returnRes;
+    }
+}
